@@ -105,18 +105,6 @@ qiime feature-classifier classify-sklearn \
   --i-classifier ./silva-138-99-classifier-515-806.qza \
   --o-classification ./taxonomy/taxonomy.qza
 
-qiime phylogeny align-to-tree-mafft-fasttree \
-  --i-sequences ./Dada2/dada2_rep_seqs_filtered.qza \
-  --o-alignment ./phylogeny/aligned-rep-seqs.qza \
-  --o-masked-alignment ./phylogeny/masked-aligned-rep-seqs.qza \
-  --o-tree ./phylogeny/unrooted-tree.qza \
-  --o-rooted-tree ./phylogeny/rooted-tree.qza
-
-qiime feature-classifier classify-sklearn \
-  --i-reads ./Dada2/dada2_rep_seqs_filtered.qza \
-  --i-classifier ./silva-138-99-classifier-515-806.qza \
-  --o-classification ./taxonomy/taxonomy.qza
-
 qiime tools export \
   --input-path ./taxonomy/taxonomy.qza \
   --output-path ./taxonomy/
@@ -144,12 +132,6 @@ biom convert \
 qiime metadata tabulate \
   --m-input-file ./taxonomy/taxonomy.qza \
   --o-visualization ./taxonomy/taxonomy_table.qzv
-
-qiime taxa barplot \
-  --i-table ./core-metrics-results/rarefied_table.qza \
-  --i-taxonomy ./taxonomy/taxonomy.qza \
-  --m-metadata-file ./metadata.txt \
-  --o-visualization ./taxonomy/taxa_barplot.qzv
 
 cp ./sequences/demux_seqs.qzv ./transfer/sequences/demux_seqs.qzv
 cp ./sequences/trimmed_demux_seqs.qzv ./transfer/sequences/trimmed_demux_seqs.qzv
