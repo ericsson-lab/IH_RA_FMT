@@ -34,4 +34,4 @@ x <- aldex.clr(file2, conds, mc.samples=128, denom="all", verbose=F)
 x.kw = aldex.kw(x)
 # operating in serial mode
 
-write.csv(x.kw, "kw_aldex2.csv")
+write.table(x.kw, "kw_aldex2.tsv", sep="\t")
