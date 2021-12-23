@@ -14,3 +14,4 @@ gsub_files(file, ';', '')
 
 readLines(file)
 
+write.csv(file, "aldex2.csv")
