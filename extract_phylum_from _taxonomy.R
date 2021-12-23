@@ -14,4 +14,3 @@ gsub_files(file, ';', '')
 
 readLines(file)
 
-write.table(file, "aldex2.tsv", sep="\t)
